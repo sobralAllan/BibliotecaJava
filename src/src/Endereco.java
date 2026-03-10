@@ -1,6 +1,7 @@
 package src;
 
 public class Endereco {
+	private int codigo;
 	private String logradouro;
 	private int numero;
 	private String bairro;
@@ -11,28 +12,38 @@ public class Endereco {
 	private long CEP;
 	
 	public Endereco() {
-		this.logradouro  = "";
-		this.numero      = 0;
-		this.bairro      = "";
-		this.complemento = "";
-		this.cidade      = "";
-		this.estado      = "";
-		this.uf          = "";
-		this.CEP         = 0;		 
+		this.setCodigo(0);
+		this.setLogradouro("");
+		this.setNumero(0);
+		this.setBairro("");
+		this.setComplemento("");
+		this.setCidade("");
+		this.setEstado("");
+		this.setUF("");
+		this.setCEP(0);		 
 	}//fim do construtor
 	
-	public Endereco(String logradouro, int numero, String bairro, String complemento, 
+	public Endereco(int codigo, String logradouro, int numero, String bairro, String complemento, 
 					String cidade, String estado, String uf, long CEP) 
 	{
-		this.logradouro  = logradouro;
-		this.numero      = numero;
-		this.bairro      = bairro;
-		this.complemento = complemento;
-		this.cidade      = cidade;
-		this.estado      = estado;
-		this.uf          = uf;
-		this.CEP         = CEP;
+		this.setCodigo(codigo);
+		this.setLogradouro(logradouro);
+		this.setNumero(numero);
+		this.setBairro(bairro);
+		this.setComplemento(complemento);
+		this.setCidade(cidade);
+		this.setEstado(estado);
+		this.setUF(uf);
+		this.setCEP(CEP);
 	}//fim do construtor
+	
+	public int getCodigo() {
+		return this.codigo;
+	}//fim do getCodigo
+	
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}//fim do setCodigo
 	
 	public String getLogradouro() {
 		return this.logradouro;
@@ -54,8 +65,16 @@ public class Endereco {
 		return this.cidade;
 	}//fim do método
 	
+	public void setCidade(String cidade) {
+		this.cidade = cidade;		
+	}//fim do método
+	
 	public String getEstado() {
 		return this.estado;
+	}//fim do método
+	
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}//fim do método
 	
 	public String getUF() {

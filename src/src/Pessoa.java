@@ -8,22 +8,25 @@ public class Pessoa {
 	private String nome; 
 	private String telefone;
 	private String email;
+	Endereco endereco;
 	
 	public Pessoa() {
-		this.codigo   = 0;
-		this.cpf      = 0;
-		this.nome     = "";
-		this.telefone = "";
-		this.email    = "";
+		this.setCodigo(0);
+		this.setCPF(0);
+		this.setNome("");
+		this.setTelefone("");
+		this.setEmail("");
+		this.setEndereco(new Endereco());//Chamando o construtor vazio - com valores padrões
 	}//fim do construtor padrão
 	
 	//2ª Máxima da O.O. = Sobrecarga
-	public Pessoa(int codigo, long cpf, String nome, String telefone, String email) {
-		this.codigo   = codigo;
-		this.cpf      = cpf;
-		this.nome     = nome;
-		this.telefone = telefone;
-		this.email    = email;
+	public Pessoa(int codigo, long cpf, String nome, String telefone, String email, Endereco endereco) {
+		this.setCodigo(codigo);
+		this.setCPF(cpf);
+		this.setNome(nome);
+		this.setTelefone(telefone);
+		this.setEmail(email);
+		this.setEndereco(endereco);//logradouro, numero, bairro, cidade, estado, UF, CEP
 	}//fim do construtor pessoa
 	
 	//Métodos modificadores - GETS e SETS
@@ -67,11 +70,20 @@ public class Pessoa {
 		this.email = email;
 	}//fim do setEmail
 	
+	public Endereco getEndereco() {
+		return this.endereco;
+	}//fim do getEndereco
+	
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}//fim do setEndereco
+	
 	public String imprimir() {
 		return "Código: "     + getCodigo()   +
 			   "\nCPF: "      + getCPF()      +
 			   "\nNome: "     + getNome()     +
 			   "\nTelefone: " + getTelefone() +
-			   "\nEmail: "    + getEmail();
+			   "\nEmail: "    + getEmail()    +
+			   "\nDados Endereço: "           + this.endereco.imprimir();
 	}//fim do imprimir
 }//fim da classe
